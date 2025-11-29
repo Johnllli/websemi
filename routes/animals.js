@@ -1,10 +1,10 @@
 const express = require('express');
 const router = express.Router();
 const db = require('../config/db');
-const { isAdmin } = require('../middleware/auth');
+const { isAuthenticated } = require('../middleware/auth'); // Change from isAdmin to isAuthenticated
 
-// Apply isAdmin middleware to all routes in this router
-router.use(isAdmin);
+// Apply isAuthenticated middleware to all routes in this router
+router.use(isAuthenticated); // Change from isAdmin to isAuthenticated
 
 const limit = 50; // Items per page for CRUD
 
