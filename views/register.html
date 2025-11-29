@@ -21,7 +21,7 @@
                     <% if (typeof success !== 'undefined' && success) { %>
 						<p style="color: green;"><%= success %></p>
 					<% } %>
-					<form method="post" action="/register">
+					<form method="post" action="<%= routePrefix %>/register">
 						<div class="row gtr-50">
                             <div class="col-12">
                                 <input type="text" name="name" placeholder="Name" required />

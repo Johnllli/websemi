@@ -5,25 +5,25 @@
             <% if (isAdmin) { %>
                 <span>(You are admin)</span>
             <% } %>
-            <a href="/logout">Logout</a>
+            <a href="<%= routePrefix %>/logout">Logout</a>
         <% } else { %>
-            <a href="/login">Login</a>
-            <a href="/register">Register</a>
+            <a href="<%= routePrefix %>/login">Login</a>
+            <a href="<%= routePrefix %>/register">Register</a>
         <% } %>
     </div>
     <!-- Logo -->
-    <h1><a href="/">The World of István Fekete</a></h1>
+    <h1><a href="<%= routePrefix %>/">The World of István Fekete</a></h1>
     <!-- Nav -->
     <nav id="nav">
         <ul>
-            <li class="<%= currentPage === 'home' ? 'current' : '' %>"><a href="/">Home</a></li>
-            <li class="<%= currentPage === 'database' ? 'current' : '' %>"><a href="/database">Database</a></li>
-            <li class="<%= currentPage === 'contact' ? 'current' : '' %>"><a href="/contact">Contact</a></li>
+            <li class="<%= currentPage === 'home' ? 'current' : '' %>"><a href="<%= routePrefix %>/">Home</a></li>
+            <li class="<%= currentPage === 'database' ? 'current' : '' %>"><a href="<%= routePrefix %>/database">Database</a></li>
+            <li class="<%= currentPage === 'contact' ? 'current' : '' %>"><a href="<%= routePrefix %>/contact">Contact</a></li>
             <% if (userId) { %>
-                <li class="<%= currentPage === 'messages' ? 'current' : '' %>"><a href="/messages">Messages</a></li>
-                <li class="<%= currentPage === 'animals-crud' ? 'current' : '' %>"><a href="/animals-crud">CRUD Animals</a></li>
+                <li class="<%= currentPage === 'messages' ? 'current' : '' %>"><a href="<%= routePrefix %>/messages">Messages</a></li>
+                <li class="<%= currentPage === 'animals-crud' ? 'current' : '' %>"><a href="<%= routePrefix %>/animals-crud">CRUD Animals</a></li>
                 <% if (isAdmin) { %>
-                    <li class="<%= currentPage === 'admin' ? 'current' : '' %>"><a href="/admin">Admin</a></li>
+                    <li class="<%= currentPage === 'admin' ? 'current' : '' %>"><a href="<%= routePrefix %>/admin">Admin</a></li>
                 <% } %>
             <% } %>
         </ul>

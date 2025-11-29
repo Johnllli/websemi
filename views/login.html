@@ -18,7 +18,7 @@
 					<% if (typeof error !== 'undefined' && error) { %>
 						<p style="color: red;"><%= error %></p>
 					<% } %>
-					<form method="post" action="/login">
+					<form method="post" action="<%= routePrefix %>/login">
 						<div class="row gtr-50">
 							<div class="col-6 col-12-small">
 								<input type="email" name="email" placeholder="Email" />
@@ -33,7 +33,7 @@
 							</div>
 						</div>
 					</form>
-					<p>Don't have an account? <a href="/register">Make one here</a></p>
+					<p>Don't have an account? <a href="<%= routePrefix %>/register">Make one here</a></p>
 				</div>
 			</section>
 		</div>

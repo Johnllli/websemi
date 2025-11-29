@@ -7,6 +7,9 @@ const ejs = require('ejs');
 const session = require('express-session');
 const db = require('./config/db');
 
+// Define the route prefix
+const routePrefix = '/app205';
+
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const databaseRouter = require('./routes/database');
@@ -16,7 +19,7 @@ const registerRouter = require('./routes/register');
 const contactRouter = require('./routes/contact');
 const messagesRouter = require('./routes/messages');
 const animalsCrudRouter = require('./routes/animals');
-const adminRouter = require('./routes/admin'); // Add this line
+const adminRouter = require('./routes/admin');
 
 const app = express();
 
@@ -39,11 +42,12 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-// Make user info available in all templates
+// Make user info and routePrefix available in all templates
 app.use(async (req, res, next) => {
   res.locals.userId = req.session.userId;
   res.locals.userName = req.session.userName;
   res.locals.isAdmin = req.session.isAdmin;
+  res.locals.routePrefix = routePrefix; // Make routePrefix available
 
   if (req.session.userId) {
     try {
@@ -61,16 +65,17 @@ app.use(async (req, res, next) => {
   next();
 });
 
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
-app.use('/database', databaseRouter);
-app.use('/login', loginRouter);
-app.use('/logout', logoutRouter);
-app.use('/register', registerRouter);
-app.use('/contact', contactRouter);
-app.use('/messages', messagesRouter);
-app.use('/animals-crud', animalsCrudRouter);
-app.use('/admin', adminRouter); // Add this line
+// Mount all routers under the routePrefix
+app.use(routePrefix + '/', indexRouter);
+app.use(routePrefix + '/users', usersRouter);
+app.use(routePrefix + '/database', databaseRouter);
+app.use(routePrefix + '/login', loginRouter);
+app.use(routePrefix + '/logout', logoutRouter);
+app.use(routePrefix + '/register', registerRouter);
+app.use(routePrefix + '/contact', contactRouter);
+app.use(routePrefix + '/messages', messagesRouter);
+app.use(routePrefix + '/animals-crud', animalsCrudRouter);
+app.use(routePrefix + '/admin', adminRouter);
 
 // Catch 404 and forward to error handler
 app.use((req, res, next) => {

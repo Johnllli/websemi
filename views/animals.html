@@ -52,7 +52,7 @@
 					<% } %>
 
 					<h3>Add New Animal</h3>
-					<form action="/animals-crud/add" method="POST">
+					<form action="<%= routePrefix %>/animals-crud/add" method="POST">
 						<div class="row gtr-50">
 							<div class="col-6 col-12-small">
 								<input type="text" name="aname" placeholder="Animal Name" required />
@@ -87,7 +87,7 @@
 										<td><%= animal.species %></td>
 										<td>
 											<button onclick="showEditForm(<%= animal.id %>, '<%= animal.aname %>', '<%= animal.species %>')">Edit</button>
-											<form action="/animals-crud/delete" method="POST" style="display:inline;">
+											<form action="<%= routePrefix %>/animals-crud/delete" method="POST" style="display:inline;">
 												<input type="hidden" name="id" value="<%= animal.id %>">
 												<input type="hidden" name="page" value="<%= page %>">
 												<button type="submit" onclick="return confirm('Are you sure you want to delete this animal?');">Delete</button>
@@ -106,22 +106,22 @@
 					<div class="pagination">
 						<span>Page <%= page %> of <%= totalPages %></span>
 						<% if (page > 1) { %>
-							<a href="?page=<%= page - 1 %>">Previous</a>
+							<a href="<%= routePrefix %>/animals-crud?page=<%= page - 1 %>">Previous</a>
 						<% } else { %>
 							<span class="disabled">Previous</span>
 						<% } %>
 						<% for (let i = 1; i <= totalPages; i++) { %>
-							<a href="?page=<%= i %>" class="<%= i === page ? 'active' : '' %>"><%= i %></a>
+							<a href="<%= routePrefix %>/animals-crud?page=<%= i %>" class="<%= i === page ? 'active' : '' %>"><%= i %></a>
 						<% } %>
 						<% if (page < totalPages) { %>
-							<a href="?page=<%= page + 1 %>">Next</a>
+							<a href="<%= routePrefix %>/animals-crud?page=<%= page + 1 %>">Next</a>
 						<% } else { %>
 							<span class="disabled">Next</span>
 						<% } %>
 					</div>
 
 					<h3 id="edit-animal-heading" style="display:none;">Edit Animal</h3>
-					<form action="/animals-crud/update" method="POST" id="edit-animal-form" style="display:none;">
+					<form action="<%= routePrefix %>/animals-crud/update" method="POST" id="edit-animal-form" style="display:none;">
 						<input type="hidden" name="id" id="edit-animal-id">
 						<input type="hidden" name="page" value="<%= page %>">
 						<div class="row gtr-50">

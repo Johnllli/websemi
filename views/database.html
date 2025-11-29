@@ -93,15 +93,15 @@
 						<div class="pagination">
 							<span>Page <%= novelsPage %> of <%= totalNovelsPages %></span>
 							<% if (novelsPage > 1) { %>
-								<a href="?novelsPage=<%= novelsPage - 1 %>&animalsPage=<%= animalsPage %>&usersPage=<%= usersPage %>">Previous</a>
+								<a href="<%= routePrefix %>/database?novelsPage=<%= novelsPage - 1 %>&animalsPage=<%= animalsPage %>&usersPage=<%= usersPage %>">Previous</a>
 							<% } else { %>
 								<span class="disabled">Previous</span>
 							<% } %>
 							<% for (let i = 1; i <= totalNovelsPages; i++) { %>
-								<a href="?novelsPage=<%= i %>&animalsPage=<%= animalsPage %>&usersPage=<%= usersPage %>" class="<%= i === novelsPage ? 'active' : '' %>"><%= i %></a>
+								<a href="<%= routePrefix %>/database?novelsPage=<%= i %>&animalsPage=<%= animalsPage %>&usersPage=<%= usersPage %>" class="<%= i === novelsPage ? 'active' : '' %>"><%= i %></a>
 							<% } %>
 							<% if (novelsPage < totalNovelsPages) { %>
-								<a href="?novelsPage=<%= novelsPage + 1 %>&animalsPage=<%= animalsPage %>&usersPage=<%= usersPage %>">Next</a>
+								<a href="<%= routePrefix %>/database?novelsPage=<%= novelsPage + 1 %>&animalsPage=<%= animalsPage %>&usersPage=<%= usersPage %>">Next</a>
 							<% } else { %>
 								<span class="disabled">Next</span>
 							<% } %>
@@ -137,15 +137,15 @@
 						<div class="pagination">
 							<span>Page <%= animalsPage %> of <%= totalAnimalsPages %></span>
 							<% if (animalsPage > 1) { %>
-								<a href="?novelsPage=<%= novelsPage %>&animalsPage=<%= animalsPage - 1 %>&usersPage=<%= usersPage %>">Previous</a>
+								<a href="<%= routePrefix %>/database?novelsPage=<%= novelsPage %>&animalsPage=<%= animalsPage - 1 %>&usersPage=<%= usersPage %>">Previous</a>
 							<% } else { %>
 								<span class="disabled">Previous</span>
 							<% } %>
 							<% for (let i = 1; i <= totalAnimalsPages; i++) { %>
-								<a href="?novelsPage=<%= novelsPage %>&animalsPage=<%= i %>&usersPage=<%= usersPage %>" class="<%= i === animalsPage ? 'active' : '' %>"><%= i %></a>
+								<a href="<%= routePrefix %>/database?novelsPage=<%= novelsPage %>&animalsPage=<%= i %>&usersPage=<%= usersPage %>" class="<%= i === animalsPage ? 'active' : '' %>"><%= i %></a>
 							<% } %>
 							<% if (animalsPage < totalAnimalsPages) { %>
-								<a href="?novelsPage=<%= novelsPage %>&animalsPage=<%= animalsPage + 1 %>&usersPage=<%= usersPage %>">Next</a>
+								<a href="<%= routePrefix %>/database?novelsPage=<%= novelsPage %>&animalsPage=<%= animalsPage + 1 %>&usersPage=<%= usersPage %>">Next</a>
 							<% } else { %>
 								<span class="disabled">Next</span>
 							<% } %>
@@ -181,15 +181,15 @@
 						<div class="pagination">
 							<span>Page <%= usersPage %> of <%= totalUsersPages %></span>
 							<% if (usersPage > 1) { %>
-								<a href="?novelsPage=<%= novelsPage %>&animalsPage=<%= animalsPage %>&usersPage=<%= usersPage - 1 %>">Previous</a>
+								<a href="<%= routePrefix %>/database?novelsPage=<%= novelsPage %>&animalsPage=<%= animalsPage %>&usersPage=<%= usersPage - 1 %>">Previous</a>
 							<% } else { %>
 								<span class="disabled">Previous</span>
 							<% } %>
 							<% for (let i = 1; i <= totalUsersPages; i++) { %>
-								<a href="?novelsPage=<%= novelsPage %>&animalsPage=<%= animalsPage %>&usersPage=<%= i %>" class="<%= i === usersPage ? 'active' : '' %>"><%= i %></a>
+								<a href="<%= routePrefix %>/database?novelsPage=<%= novelsPage %>&animalsPage=<%= animalsPage %>&usersPage=<%= usersPage %>" class="<%= i === usersPage ? 'active' : '' %>"><%= i %></a>
 							<% } %>
 							<% if (usersPage < totalUsersPages) { %>
-								<a href="?novelsPage=<%= novelsPage %>&animalsPage=<%= animalsPage %>&usersPage=<%= usersPage + 1 %>">Next</a>
+								<a href="<%= routePrefix %>/database?novelsPage=<%= novelsPage %>&animalsPage=<%= animalsPage %>&usersPage=<%= usersPage + 1 %>">Next</a>
 							<% } else { %>
 								<span class="disabled">Next</span>
 							<% } %>
