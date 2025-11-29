@@ -1,0 +1,61 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Login</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+	</head>
+	<body class="is-preload">
+		<div id="page-wrapper">
+			<!-- Header -->
+			<section id="header">
+				<div class="user-nav">
+					<% if (userId) { %>
+						<span>Welcome, <%= userName %></span>
+						<% if (isAdmin) { %>
+							<span>(You are admin)</span>
+						<% } %>
+						<a href="/logout">Logout</a>
+					<% } else { %>
+						<a href="/login">Login</a>
+						<a href="/register">Register</a>
+					<% } %>
+				</div>
+				<h1><a href="/">Dopetrope</a></h1>
+				<!-- Nav -->
+				<nav id="nav">
+					<ul>
+						<li><a href="/">Home</a></li>
+						<li><a href="/database">Database</a></li>
+					</ul>
+				</nav>
+			</section>
+
+			<!-- Main -->
+			<section id="main">
+				<div class="container">
+					<h2>Login</h2>
+					<% if (typeof error !== 'undefined' && error) { %>
+						<p style="color: red;"><%= error %></p>
+					<% } %>
+					<form method="post" action="/login">
+						<div class="row gtr-50">
+							<div class="col-6 col-12-small">
+								<input type="email" name="email" placeholder="Email" />
+							</div>
+							<div class="col-6 col-12-small">
+								<input type="password" name="password" placeholder="Password" />
+							</div>
+							<div class="col-12">
+								<ul class="actions">
+									<li><input type="submit" class="button" value="Login" /></li>
+								</ul>
+							</div>
+						</div>
+					</form>
+				</div>
+			</section>
+		</div>
+	</body>
+</html>

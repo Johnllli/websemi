@@ -2906,3 +2906,21 @@ input, select, textarea {
 			}
 
 	}
+/* User Nav */
+.user-nav {
+    position: absolute;
+    top: 1em;
+    right: 1em;
+    font-size: 1.2em; /* Increased font size */
+    font-weight: bold;
+}
+
+.user-nav span, .user-nav a {
+    margin-left: 1em;
+    color: #007bff; /* Changed to a blue color */
+    text-decoration: none;
+}
+
+.user-nav a:hover {
+    text-decoration: underline;
+}
