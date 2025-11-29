@@ -13,6 +13,7 @@ router.get('/', async (req, res, next) => {
       novels: novels,
       animals: animals,
       users: users,
+      currentPage: 'database' // Pass currentPage variable
     });
   } catch (err) {
     console.error('Database query failed:', err);

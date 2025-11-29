@@ -5,7 +5,7 @@ const db = require('../config/db');
 
 // GET registration page
 router.get('/', (req, res) => {
-  res.render('register.html', { error: null, success: null });
+  res.render('register.html', { error: null, success: null, currentPage: 'register' });
 });
 
 // POST registration data
@@ -16,7 +16,7 @@ router.post('/', async (req, res) => {
     // Check if user already exists
     const [users] = await db.query('SELECT * FROM users WHERE email = ?', [email]);
     if (users.length > 0) {
-      return res.render('register.html', { error: 'User with this email already exists.', success: null });
+      return res.render('register.html', { error: 'User with this email already exists.', success: null, currentPage: 'register' });
     }
 
     // Hash the password
@@ -25,10 +25,10 @@ router.post('/', async (req, res) => {
     // Insert the new user into the database
     await db.query('INSERT INTO users (name, email, password, is_admin) VALUES (?, ?, ?, ?)', [name, email, hashedPassword, 0]);
 
-    res.render('register.html', { error: null, success: 'Registration successful! You can now log in.' });
+    res.render('register.html', { error: null, success: 'Registration successful! You can now log in.', currentPage: 'register' });
   } catch (err) {
     console.error('Registration failed:', err);
-    res.status(500).render('register.html', { error: 'An error occurred during registration.', success: null });
+    res.status(500).render('register.html', { error: 'An error occurred during registration.', success: null, currentPage: 'register' });
   }
 });
 

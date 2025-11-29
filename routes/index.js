@@ -14,6 +14,7 @@ router.get('/', async (req, res, next) => {
     res.render('index.html', {
       novels: novels,
       animals: animals,
+      currentPage: 'home' // Pass currentPage variable
     });
   } catch (err) {
     console.error('Database query failed:', err);

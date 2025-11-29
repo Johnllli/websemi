@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Messages - The World of István Fekete</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+	</head>
+	<body class="is-preload">
+		<div id="page-wrapper">
+			<!-- Header -->
+			<%- include('partials/header.html', { currentPage: 'messages' }) %>
+
+			<!-- Main -->
+			<section id="main">
+				<div class="container">
+					<h2>Messages</h2>
+					<% if (typeof messages !== 'undefined' && messages.length > 0) { %>
+						<% messages.forEach(function(message) { %>
+							<div class="box">
+								<p><strong>From:</strong> <%= message.name %> (<%= message.email %>)</p>
+								<p><strong>Role:</strong> <%= message.role %></p>
+								<p><strong>Sent At:</strong> <%= new Date(message.sent_at).toLocaleString() %></p>
+								<p><strong>Message:</strong></p>
+								<p><%= message.message %></p>
+							</div>
+						<% }); %>
+					<% } else { %>
+						<p>No messages to display.</p>
+					<% } %>
+				</div>
+			</section>
+		</div>
+	</body>
+</html>

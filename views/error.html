@@ -1,0 +1,26 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Error</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+	</head>
+	<body class="is-preload">
+		<div id="page-wrapper">
+			<!-- Header -->
+			<section id="header">
+				<h1><a href="/">The World of István Fekete</a></h1>
+			</section>
+
+			<!-- Main -->
+			<section id="main">
+				<div class="container">
+					<h2><%= message %></h2>
+					<h3><%= error.status %></h3>
+					<pre><%= error.stack %></pre>
+				</div>
+			</section>
+		</div>
+	</body>
+</html>
