@@ -14,7 +14,8 @@ const loginRouter = require('./routes/login');
 const logoutRouter = require('./routes/logout');
 const registerRouter = require('./routes/register');
 const contactRouter = require('./routes/contact');
-const messagesRouter = require('./routes/messages'); // Add this line
+const messagesRouter = require('./routes/messages');
+const animalsCrudRouter = require('./routes/animals'); // Add this line
 
 const app = express();
 
@@ -66,7 +67,8 @@ app.use('/login', loginRouter);
 app.use('/logout', logoutRouter);
 app.use('/register', registerRouter);
 app.use('/contact', contactRouter);
-app.use('/messages', messagesRouter); // Add this line
+app.use('/messages', messagesRouter);
+app.use('/animals-crud', animalsCrudRouter); // Add this line
 
 // Catch 404 and forward to error handler
 app.use((req, res, next) => {

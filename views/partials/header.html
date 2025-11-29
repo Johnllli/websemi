@@ -21,6 +21,9 @@
             <li class="<%= currentPage === 'contact' ? 'current' : '' %>"><a href="/contact">Contact</a></li>
             <% if (userId) { %>
                 <li class="<%= currentPage === 'messages' ? 'current' : '' %>"><a href="/messages">Messages</a></li>
+                <% if (isAdmin) { %>
+                    <li class="<%= currentPage === 'animals-crud' ? 'current' : '' %>"><a href="/animals-crud">CRUD Animals</a></li>
+                <% } %>
             <% } %>
         </ul>
     </nav>

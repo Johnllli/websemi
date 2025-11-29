@@ -3,9 +3,8 @@ CREATE DATABASE animal_novels;
 USE animal_novels;
 
 -- --------------------------------------------------------
--- Table structure for table 'novels'
+-- 1. Table structure for table 'novels'
 -- The 'novels' table stores information about István Fekete's novels.
--- id is the primary key.
 -- --------------------------------------------------------
 CREATE TABLE novels (
   id INT NOT NULL,
@@ -58,16 +57,16 @@ INSERT INTO novels (id, pyear, title, publisher) VALUES
 (38, 2000, 'A magam erdeiben', 'Új Ember Könyvkiadó');
 
 -- --------------------------------------------------------
--- Table structure for table 'animals'
+-- 2. Table structure for table 'animals'
 -- The 'animals' table stores the names and species of animals invented by István Fekete.
--- id is the primary key.
+-- id is the primary key and is now AUTO_INCREMENT.
 -- --------------------------------------------------------
 CREATE TABLE animals (
-  id INT NOT NULL,
+  id INT NOT NULL AUTO_INCREMENT,
   aname VARCHAR(255) NOT NULL,
   species VARCHAR(255) NOT NULL,
   PRIMARY KEY (id)
-);
+) ENGINE=InnoDB AUTO_INCREMENT=201;
 
 --
 -- Dumping data for table 'animals'
@@ -276,9 +275,8 @@ INSERT INTO animals (id, aname, species) VALUES
 
 
 -- --------------------------------------------------------
--- Table structure for table 'connecting'
+-- 3. Table structure for table 'connecting'
 -- The 'connecting' table links animals to the novels they appear in.
--- It's a many-to-many relationship table. Both columns are part of the composite primary key.
 -- --------------------------------------------------------
 CREATE TABLE connecting (
   animalid INT NOT NULL,
@@ -349,7 +347,7 @@ INSERT INTO connecting (animalid, novelid) VALUES
 (195, 20);
 
 -- --------------------------------------------------------
--- Table structure for table 'users'
+-- 4. Table structure for table 'users'
 --
 CREATE TABLE users (
   id bigint(20) NOT NULL AUTO_INCREMENT,
@@ -370,7 +368,7 @@ INSERT INTO users (id, name, email, password, is_admin) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table 'message'
+-- 5. Table structure for table 'message'
 --
 CREATE TABLE message (
   id INT NOT NULL AUTO_INCREMENT,
